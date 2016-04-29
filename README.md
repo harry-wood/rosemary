@@ -17,12 +17,9 @@ OpenStreetMap (OSM) is a collaborative project to create a free editable map of 
 
 ## The OpenStreetMap Database
 
-OpenStreetMap data is published under an open content license, with the intention of promoting free use and re-distribution of the data (both commercial and non-commercial). The license currently used is the [Creative Commons Attribution-Share Alike 2.0 licence](http://creativecommons.org/licenses/by-sa/2.0/); however, legal investigation work and community consultation is underway to relicense the project under the [Open Database License (ODbL)](http://opendatacommons.org/licenses/odbl/) from [Open Data Commons (ODC)](http://opendatacommons.org/), claimed to be more suitable for a map data set.
+OpenStreetMap data is published under an open content license, with the intention of promoting free use and re-distribution of the data (both commercial and non-commercial). The license is [Open Database License (ODbL)](http://opendatacommons.org/licenses/odbl/) from [Open Data Commons (ODC)](http://opendatacommons.org/). Data users are required to give credit to OpenStreetMap. If you create a "derived database" from OpenStreetMap you are required to share this under the same license. [Read more about the OpenStreetMap License here](https://wiki.osmfoundation.org/wiki/License). 
 
-## Input Data
-
-All data added to the project need to have a license compatible with the Creative Commons Attribution-Share Alike license. This can include out of copyright information, public domain or other licenses. All contributors must register with the project and agree to provide data on a Creative Commons CC-BY-SA 2.0 licence, or determine that the licensing of the source data is suitable; this may involve examining licences for government data to establish whether they are compatible.
-Due to the license switch, data added in future must be compatible with both the Open Database License and the new Contributor Terms in order to be accepted.
+If you are building a system which allows contributors to add/modify the OpenStreetMap database, then all contributors must register with the project and agree to the "[Contributor Terms](https://wiki.osmfoundation.org/wiki/License/Contributor_Terms)".
 
 ## Installation
 
@@ -61,7 +58,12 @@ api = Rosemary::Api.new
 api.find_node(123)
 ```
 
-Modification of data is supported too. According to the OSM license every modification to the data has to be done by a registered OSM user account. The user can be authenticated with username and password. But see yourself:
+## Making edits to OpenStreetMap
+Modification of data is supported too (a read/write API), but this requires authentication. According to the OSM license every modification to the data has to be done by a registered OSM user account (so that all contributors have agreed to the [Contributor Terms](https://wiki.osmfoundation.org/wiki/License/Contributor_Terms)).
+
+If you are writing a script to perform imports or other kinds of automated editing, you should also be aware of [Automated Edits code of conduct](http://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct). Please read this before starting work on a such a script. It includes many important things to be aware of. It also includes the requirement to register a separate OpenStreetMap user account for such activity.
+
+The OpenStreetMap user can be authenticated with username and password. But see yourself:
 
 ``` ruby
 client = Rosemary::BasicAuthClient.new('osm_user_name', 'password')
